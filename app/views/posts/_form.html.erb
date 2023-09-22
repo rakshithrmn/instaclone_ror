@@ -1,0 +1,45 @@
+<div class="col-xl-4 col-md-6 col-sm-8 col-10" 
+style="margin: auto; background-color: #f8f8f8:
+border-radius: 6px; padding: 15px; box-shadow: 0px 0px 2px
+2px (255, 255, 255, 0.1)">
+<%= form_with(model: post) do |form| %>
+  <h1>New post</h1>
+  
+  <div>
+    <% invalid = post.errors.include?(:title)%>
+    <%= form.label :title, style: "display: block" %>
+    <%= form.text_field :title, class: "form-control" %>
+    <% if invalid %>
+      <p style="color:red">
+        <%= post.errors.full_messages_for(:title).join(". ")%>
+    <% end %>  
+  </div>
+
+  <div>
+    <% invalid = post.errors.include?(:description)%>
+    <%= form.label :description, style: "display: block" %>
+    <%= form.text_field :description, class: "form-control" %>
+    <% if invalid %>
+      <p style="color:red">
+        <%= post.errors.full_messages_for(:description).join(". ")%>
+    <% end %>
+  </div>
+
+  <div>
+  <% invalid = post.errors.include?(:keywords)%>
+    <%= form.label :keywords, style: "display: block" %>
+    <%= form.text_field :keywords, class: "form-control" %>
+    <% if invalid %>
+      <p style="color:red">
+        <%= post.errors.full_messages_for(:keywords).join(". ")%>
+    <% end %>
+  </div>
+  <div>
+    <%= form.file_field :images, multiple:true %>
+  </div>
+
+  <div>
+    <%= form.submit  class:"btn btn-primary col-12"%>
+  </div>
+<% end %>
+</div>
