@@ -9,4 +9,6 @@ class Post < ApplicationRecord
         minimum: 5, maximum: 100
     }
     has_many_attached   :images
+
+    belongs_to :user
 end

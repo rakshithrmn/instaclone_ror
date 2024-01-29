@@ -14,8 +14,14 @@
   <p>
     <%= link_to "", post, class: "post-link" %>
   </p>
+  <% 
+#=begin 
+%>
   <%= post.images.each do |image| %>
     <%= image_tag(image, style: "object-fit: cover; 
-    width: 700px; height: 700px;") %>
+    width: 300px; height: 300px;") %>
   <% end %>
+<%
+#=end
+%>
 </div>
